@@ -39,6 +39,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(1)
+    @Tag("positive")
     @DisplayName("Проверрить код ответа при получении списка сотрудников новой компании")
     void getEmployeeListCodeTest() {
         JsonObject jsonObject =
@@ -50,6 +51,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(2)
+    @Tag("positive")
     @DisplayName("Проверить текст ответа при получении списка сотрудников новой компании")
     void getEmployeeListBodyTest() {
         JsonObject jsonObject =
@@ -61,6 +63,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(3)
+    @Tag("negative")
     @DisplayName("Проверить код ответа на запрос с неверным идентификатором компании")
     void getEmployeeWrongListCode() {
         JsonObject jsonObject =
@@ -72,6 +75,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(4)
+    @Tag("positive")
     @DisplayName("Код ответа на запрос о создании сотрудника")
     void testCodeCreateEmployeeTest() {
         TestEmployee employee = new TestEmployee(COMPANY_ID);
@@ -86,6 +90,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(5)
+    @Tag("positive")
     @DisplayName("Текст ответа на запрос о создании сотрудника")
     void testBodyCreateEmployeeTest() {
         TestEmployee employee = new TestEmployee(COMPANY_ID);
@@ -99,6 +104,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(6)
+    @Tag("negative")
     @DisplayName("Код ответа на неверный запрос о создании сотрудника")
     void testCodeCreateWrongEmployeeTest() {
         TestEmployee employee = new TestEmployee(0);
@@ -112,6 +118,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(7)
+    @Tag("positive")
     @DisplayName("Получить код ответа при запросе данных о сотруднике по идентификатору")
     void testCodeGetEmployeeById() {
         JsonObject jsonObject =
@@ -123,6 +130,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(8)
+    @Tag("positive")
     @DisplayName("Проверить текст ответа при получении списка сотрудников новой компании")
     void testBodyGetEmployeeById() {
         JsonObject jsonObject =
@@ -136,6 +144,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(9)
+    @Tag("negative")
     @DisplayName("Получите код ответа при запросе данных о сотруднике по неправильному идентификатору")
     void testCodeGetWrongEmployeeById() {
         JsonObject jsonObject =
@@ -147,6 +156,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(10)
+    @Tag("positive")
     @DisplayName("Получить код ответа, исправив данные сотрудника по идентификатору")
     void testCodePatchEmployeeById() {
         String params = "{\"lastName\": \"Testing\", \"email\": \"Another@email.com\"," +
@@ -160,6 +170,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(11)
+    @Tag("positive")
     @DisplayName("Получить основную часть ответа, исправив данные о сотруднике по идентификатору")
     void testBodyPatchEmployeeById() {
         String params = "{\"lastName\": \"Testing\", \"email\": \"Another@email.com\"," +
@@ -177,6 +188,7 @@ public class EmployeeAPITests {
 
     @Test
     @Order(12)
+    @Tag("negative")
     @DisplayName("Получить код из некорректного запроса на исправление данных")
     void testCodeWrongPatchEmployeeById() {
         String params = "{\"lastName\": \"Testing\", \"email\": \"Another@email.com\"," +
